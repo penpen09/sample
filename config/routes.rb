@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # get 'blogs/index'
   # get '/blogs', to:'blogs#index'#blogsコントローラのindexアクションを起動する
   # get '/stocks', to:'stocks#index'
-  root :to 'blogs#index'
+  root :to 'blogs#show'
   resources :blogs do
     collection do
       post :confirm
