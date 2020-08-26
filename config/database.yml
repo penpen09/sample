@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql #どのデータベースを使用するか
+  encoding: unicode #文字コードUTF8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: sample_development #どのデータベースに接続するか
+
+test:
+  <<: *default
+  database: sample_test
+
+production:
+  <<: *default
+  database: sample_production
+  username: sample #データベースに接続する際、どのユーザで接続するか
+  password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %> #そのユーザのパスワード
